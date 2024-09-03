@@ -1,0 +1,20 @@
+{
+  "name": "basic-project",
+  "version": "1.0.0",
+  "description": "create some route",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "and",
+    "route"
+  ],
+  "author": "Devendra",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
