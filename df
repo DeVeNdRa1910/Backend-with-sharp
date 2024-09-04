@@ -1,0 +1,29 @@
+[33mcommit cc1ff28ebde78f2c66597a203c2afd71fcda7a29[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Devendra <devendrav1910@gmail.com>
+Date:   Wed Sep 4 12:43:27 2024 +0530
+
+    add cleanup code and split code into multipople functions
+
+[33mcommit 17825a5db95e65f5b33c851ac1b5c850a3335b66[m
+Author: Devendra <devendrav1910@gmail.com>
+Date:   Wed Sep 4 12:26:26 2024 +0530
+
+    create a littel node js app
+
+[33mcommit 054e417ea852db44e598d3162a07988b5668bc79[m
+Author: Devendra <devendrav1910@gmail.com>
+Date:   Tue Sep 3 22:20:53 2024 +0530
+
+    create a second  server
+
+[33mcommit 70a1ac5f7075390194afdff244fa1329fa4f70f1[m
+Author: Devendra <devendrav1910@gmail.com>
+Date:   Tue Sep 3 09:55:15 2024 +0530
+
+    basic setup
+
+[33mcommit b7109d44ec892effd4230c0d64f924af593a4290[m
+Author: Devendra <devendrav1910@gmail.com>
+Date:   Tue Sep 3 09:52:47 2024 +0530
+
+    first commit
