@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Group Chat</title>
+    <script src="message.js"></script>
+  </head>
+  <body>
+    <h1>Group Chat</h1>
+    <div id="messageDisplay"></div>
+    <textarea id="messageInput" placeholder="Enter your message"></textarea>
+    <button onclick="sendMessage()">Send</button>
+
+
+
+    
+    <script>
+      window.onload = function () {
+        const username = localStorage.getItem("username");
+        if (!username) {
+          window.location.href = "/login.html";
+        } else {
+          fetchMessages();
+        }
+      };
+
+      function fetchMessages() {
+        fetch("/getMessages")
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById("messageDisplay").innerHTML = data;
+          });
+      }
+
+      function sendMessage() {
+        const message = document.getElementById("messageInput").value;
+        const username = localStorage.getItem("username");
+
+        if (message) {
+          fetch("/sendMessage", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ username, message }),
+          }).then(() => {
+            document.getElementById("messageInput").value = "";
+            fetchMessages();
+          });
+        }
+      }
+    </script>
+  </body>
+</html>
