@@ -4,12 +4,12 @@ import rootDir from '../util/path'
 
 const route = express.Router()
 
-route.use('/add-product', (req, res, next)=>{
+route.use('/contactus', (req, res, next)=>{
   console.log("In perticular middleware");
-  res.sendFile(path.join(rootDir, '../', 'views', 'add-product.html')) 
+  res.sendFile(path.join(rootDir, '../', 'views', 'contactus.html')) 
 })
 
-route.post('/product',(req, res)=>{
+route.post('/contactus',(req, res)=>{
   console.log(req.body); 
   res.redirect('/')
 })
