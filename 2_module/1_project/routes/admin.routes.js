@@ -1,6 +1,6 @@
 import express from "express";
 import path from 'path'
-import rootDir from '../util/path'
+import rootDir from '../util/path.js'
 
 const route = express.Router()
 
