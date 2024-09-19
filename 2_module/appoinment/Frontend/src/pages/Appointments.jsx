@@ -1,10 +1,19 @@
-import { useEffect, useState } from 'react';
-import { getAppointments, deleteAppointment, updateAppointment } from '../services/api';
+import { useEffect, useState } from "react";
+import {
+  getAppointments,
+  deleteAppointment,
+  updateAppointment,
+} from "../services/api";
 
 const Appointments = () => {
   const [appointments, setAppointments] = useState([]);
   const [editingId, setEditingId] = useState(null);
-  const [editData, setEditData] = useState({ name: '', email: '', date: '', time: '' });
+  const [editData, setEditData] = useState({
+    name: "",
+    email: "",
+    date: "",
+    time: "",
+  });
 
   // Fetch appointments from API
   useEffect(() => {
@@ -20,9 +29,11 @@ const Appointments = () => {
   const handleDelete = async (id) => {
     try {
       await deleteAppointment(id);
-      setAppointments(appointments.filter((appointment) => appointment.id !== id));
+      setAppointments(
+        appointments.filter((appointment) => appointment.id !== id)
+      );
     } catch (error) {
-      console.error('Error deleting appointment', error);
+      console.error("Error deleting appointment", error);
     }
   };
 
@@ -30,10 +41,14 @@ const Appointments = () => {
   const handleEditSubmit = async (id) => {
     try {
       await updateAppointment(id, editData);
-      setAppointments(appointments.map(app => app.id === id ? { ...app, ...editData } : app));
+      setAppointments(
+        appointments.map((app) =>
+          app.id === id ? { ...app, ...editData } : app
+        )
+      );
       setEditingId(null); // Reset editing state
     } catch (error) {
-      console.error('Error updating appointment', error);
+      console.error("Error updating appointment", error);
     }
   };
 
@@ -44,7 +59,7 @@ const Appointments = () => {
       name: appointment.name,
       email: appointment.email,
       date: appointment.date,
-      time: appointment.time
+      time: appointment.time,
     });
   };
 
@@ -60,33 +75,46 @@ const Appointments = () => {
                   type="text"
                   name="name"
                   value={editData.name}
-                  onChange={(e) => setEditData({ ...editData, name: e.target.value })}
+                  onChange={(e) =>
+                    setEditData({ ...editData, name: e.target.value })
+                  }
                 />
                 <input
                   type="email"
                   name="email"
                   value={editData.email}
-                  onChange={(e) => setEditData({ ...editData, email: e.target.value })}
+                  onChange={(e) =>
+                    setEditData({ ...editData, email: e.target.value })
+                  }
                 />
                 <input
                   type="date"
                   name="date"
                   value={editData.date}
-                  onChange={(e) => setEditData({ ...editData, date: e.target.value })}
+                  onChange={(e) =>
+                    setEditData({ ...editData, date: e.target.value })
+                  }
                 />
                 <input
                   type="time"
                   name="time"
                   value={editData.time}
-                  onChange={(e) => setEditData({ ...editData, time: e.target.value })}
+                  onChange={(e) =>
+                    setEditData({ ...editData, time: e.target.value })
+                  }
                 />
                 <button type="submit">Save</button>
               </form>
             ) : (
               <>
-                {appointment.name} - {appointment.email} - {appointment.date} at {appointment.time}
-                <button onClick={() => handleEditClick(appointment)}>Edit</button>
-                <button onClick={() => handleDelete(appointment.id)}>Delete</button>
+                {appointment.name} - {appointment.email} - {appointment.date} at{" "}
+                {appointment.time}
+                <button onClick={() => handleEditClick(appointment)}>
+                  Edit
+                </button>
+                <button onClick={() => handleDelete(appointment.id)}>
+                  Delete
+                </button>
               </>
             )}
           </li>
